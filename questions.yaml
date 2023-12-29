@@ -104,6 +104,50 @@ questions:
     type: string
     show_if: zookeeper.persistence.enabled=true
 
+- variable: sasl.interbroker.user
+  default: inter_broker_user
+  group: Аутентификация
+  label: Имя пользователя для взаимодействия брокеров
+  type: string
+- variable: sasl.interbroker.password
+  default: ''
+  group: Аутентификация
+  label: Пароль пользователя для взаимодействия брокеров 
+  type: string
+- variable: sasl.controller.user
+  default: controller_user
+  group: Аутентификация
+  label: Имя пользователя для взаимодействия контроллеров
+  type: string
+- variable: sasl.controller.password
+  default: ''
+  group: Аутентификация
+  label: Пароль пользователя для взаимодействия контроллеров 
+  type: string
+- variable: sasl.client.users
+  default:
+  - user1
+  group: Аутентификация
+  label: Список пользователей
+  type: multiline
+- variable: sasl.client.passwords
+  default: ''
+  group: Аутентификация
+  label: Пароли для пользователей, разделенные запятой
+  type: string
+- variable: sasl.zookeeper.user
+  default: ''
+  group: Аутентификация
+  label: Имя пользователя для подключения к ZooKeeper
+  type: string
+  show_if: zookeeper.enabled=true
+- variable: sasl.zookeeper.password
+  default: ''
+  group: Аутентификация
+  label: Пароль пользователя для подключения к ZooKeeper
+  type: string
+  show_if: zookeeper.enabled=true
+
 - variable: extraDeploy
   group: Дополнительные параметры
   label: Список дополнительных ресурсов в формате манифестов Kubernetes
