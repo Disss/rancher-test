@@ -245,7 +245,7 @@ questions:
   group: Параметры брокеров
   label: Размер диска для данных
   type: string
-  show_if: controller.controllerOnly=fals && broker.persistence.enabled=true
+  show_if: controller.controllerOnly=false && broker.persistence.enabled=true
 - variable: broker.logPersistence.enabled
   default: false
   group: Параметры брокеров
@@ -257,7 +257,7 @@ questions:
   group: Параметры брокеров
   label: Класс хранилища диска логов
   type: string
-  show_if: controller.controllerOnly=fals && broker.logPersistence.enabled=true
+  show_if: controller.controllerOnly=false && broker.logPersistence.enabled=true
 - variable: broker.logPersistence.accessModes
   group: Параметры брокеров
   label: Режим доступа к диску данных
@@ -265,13 +265,13 @@ questions:
   options:
   - ReadWriteOnce
   - ReadWriteMany
-  show_if: controller.controllerOnly=fals && broker.logPersistence.enabled=true
+  show_if: controller.controllerOnly=false && broker.logPersistence.enabled=true
 - variable: broker.logPersistence.size
   default: 8Gi
   group: Параметры брокеров
   label: Размер диска для логов
   type: string
-  show_if: controller.controllerOnly=fals && broker.logPersistence.enabled=true
+  show_if: controller.controllerOnly=false && broker.logPersistence.enabled=true
 
 
 - variable: extraDeploy
