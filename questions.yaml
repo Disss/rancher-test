@@ -2,6 +2,7 @@ questions:
 - variable: commonLabels
   group: Общие параметры
   label: Общие метки
+  default: 'app: kafka'
   type: multiline
 - variable: commonAnnotations
   group: Общие параметры
