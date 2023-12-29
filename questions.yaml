@@ -4,6 +4,11 @@ questions:
   group: Общие параметры
   label: Общие метки
   type: multiline
+- variable: test
+  default: 'sdfs' 
+  group: Общие параметры
+  label: Общие метки
+  type: string
 - variable: commonAnnotations
   default: '' 
   group: Общие параметры
