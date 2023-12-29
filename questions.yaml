@@ -1,17 +1,4 @@
 questions:
-- variable: commonLabels
-  group: Общие параметры
-  label: Общие метки
-  default: 'app: kafka'
-  type: multiline
-- variable: commonAnnotations
-  group: Общие параметры
-  label: Общие аннотации
-  type: multiline
-- variable: extraDeploy
-  group: Общие параметры
-  label: Список дополнительных ресурсов
-  type: multiline
 
 - variable: image.registry
   default: docker.io
@@ -46,4 +33,9 @@ questions:
   default: []
   group: Параметры образов Docker
   label: Список секретов для доступа к реестру образов Docker
+  type: multiline
+
+- variable: extraDeploy
+  group: Дополнительные параметры
+  label: Список дополнительных ресурсов
   type: multiline
