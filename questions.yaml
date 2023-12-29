@@ -35,6 +35,75 @@ questions:
   label: Список секретов для доступа к реестру образов Docker
   type: multiline
 
+- variable: zookeeper.enabled
+  default: false
+  group: ZooKeeper
+  label: Использовать ZooKeeper в инсталляции
+  type: boolean
+  show_subquestion_if: true
+  subquestions:
+  - variable: zookeeper.replicaCount
+    default: 1
+    group: ZooKeeper
+    label: Количество реплик ZooKeeper
+    type: int
+  - variable: zookeeper.auth.client.enabled
+    default: false
+    group: ZooKeeper
+    label: Включение аутентификации
+    type: boolean
+  - variable: zookeeper.auth.client.clientUser
+    default: 'user1'
+    group: ZooKeeper
+    label: Пользователь, который будет использован в работе zkCli.sh. Пользователь должен быть указан в переменной zookeeper.auth.client.serverUsers
+    type: string
+    show_if: zookeeper.auth.client.enabled=true
+  - variable: zookeeper.auth.client.clientPassword
+    group: ZooKeeper
+    label: Пароль пользователя
+    type: password
+    sensitive: true
+    show_if: zookeeper.auth.client.enabled=true
+  - variable: zookeeper.auth.client.serverUsers
+    default: 'user1,user2,admin'
+    group: ZooKeeper
+    label: Список создаваемых пользователей
+    type: string
+    show_if: zookeeper.auth.client.enabled=true
+  - variable: zookeeper.auth.client.serverPasswords
+    group: ZooKeeper
+    label: TODO
+    type: password
+    sensitive: true
+    show_if: zookeeper.auth.client.enabled=true
+  - variable: zookeeper.persistence.enabled
+    default: true
+    group: ZooKeeper
+    label: Включение создания дисков для данных ZooKeeper
+    type: boolean
+  - variable: zookeeper.persistence.storageClass
+    default: ''
+    group: ZooKeeper
+    label: Класс хранилища для дисков
+    type: string
+    show_if: zookeeper.persistence.enabled=true
+  - variable: zookeeper.persistence.accessModes
+    default:
+    - ReadWriteOnce
+    group: ZooKeeper
+    label: Режим работы диска
+    type: enum
+    options:
+    - ReadWriteOnce
+    - ReadWriteMany
+    show_if: zookeeper.persistence.enabled=true
+  - variable: zookeeper.persistence.size
+    default: 8Gi
+    group: ZooKeeper
+    label: Размер диска
+    type: string
+    show_if: zookeeper.persistence.enabled=true
+
 - variable: extraDeploy
   group: Дополнительные параметры
   label: Список дополнительных ресурсов
