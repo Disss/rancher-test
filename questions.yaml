@@ -106,5 +106,5 @@ questions:
 
 - variable: extraDeploy
   group: Дополнительные параметры
-  label: Список дополнительных ресурсов
+  label: Список дополнительных ресурсов в формате манифестов Kubernetes
   type: multiline
