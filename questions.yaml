@@ -10,7 +10,7 @@ questions:
   label: Общие аннотации
   type: multiline
 - variable: extraDeploy
-  default: []
+  default: ''
   group: Общие параметры
   label: Список дополнительных ресурсов
   type: multiline
