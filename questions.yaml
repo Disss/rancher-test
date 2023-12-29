@@ -127,6 +127,7 @@ questions:
 - variable: sasl.client.users
   default:
   - user1
+  - user2
   group: Аутентификация
   label: Список пользователей
   type: multiline
