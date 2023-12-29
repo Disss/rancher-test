@@ -38,7 +38,7 @@ questions:
 - variable: zookeeper.enabled
   default: false
   group: ZooKeeper
-  label: Использовать ZooKeeper в инсталляции
+  label: Использовать ZooKeeper в инсталляции. По умолчанию не требуется
   type: boolean
   show_subquestion_if: true
   subquestions:
@@ -55,7 +55,7 @@ questions:
   - variable: zookeeper.auth.client.clientUser
     default: 'user1'
     group: ZooKeeper
-    label: Пользователь, который будет использован в работе zkCli.sh. Пользователь должен быть указан в переменной zookeeper.auth.client.serverUsers
+    label: Пользователь, который будет использован в работе zkCli.sh. Должен быть указан в списке ниже
     type: string
     show_if: zookeeper.auth.client.enabled=true
   - variable: zookeeper.auth.client.clientPassword
@@ -67,12 +67,12 @@ questions:
   - variable: zookeeper.auth.client.serverUsers
     default: 'user1,user2,admin'
     group: ZooKeeper
-    label: Список создаваемых пользователей
+    label: Список пользователей для создания через запятую
     type: string
     show_if: zookeeper.auth.client.enabled=true
   - variable: zookeeper.auth.client.serverPasswords
     group: ZooKeeper
-    label: TODO
+    label: Пароли пользоватей через запятую
     type: password
     sensitive: true
     show_if: zookeeper.auth.client.enabled=true
