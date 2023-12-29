@@ -1,100 +1,55 @@
-- variable: global.imageRegistry
-  default: ''
-  group: TODO
-  label: TODO
-  type: string
-- variable: global.imagePullSecrets
-  default: []
-  group: TODO
-  label: TODO
-  type: TODO
-- variable: global.storageClass
-  default: ''
-  group: TODO
-  label: TODO
-  type: string
-- variable: kubeVersion
-  default: ''
-  group: TODO
-  label: TODO
-  type: string
-- variable: nameOverride
-  default: ''
-  group: TODO
-  label: TODO
-  type: string
-- variable: fullnameOverride
-  default: ''
-  group: TODO
-  label: TODO
-  type: string
-- variable: clusterDomain
-  default: cluster.local
-  group: TODO
-  label: TODO
-  type: string
+questions:
+- variable: commonLabels
+  default: {}
+  group: Общие параметры
+  label: Общие метки
+  type: multiline
+- variable: commonAnnotations
+  default: {}
+  group: Общие параметры
+  label: Общие аннотации
+  type: multiline
 - variable: extraDeploy
   default: []
-  group: TODO
-  label: TODO
-  type: TODO
-- variable: serviceBindings.enabled
-  default: false
-  group: TODO
-  label: TODO
-  type: boolean
-- variable: diagnosticMode.enabled
-  default: false
-  group: TODO
-  label: TODO
-  type: boolean
-- variable: diagnosticMode.command
-  default:
-  - sleep
-  group: TODO
-  label: TODO
-  type: TODO
-- variable: diagnosticMode.args
-  default:
-  - infinity
-  group: TODO
-  label: TODO
-  type: TODO
+  group: Общие параметры
+  label: Список дополнительных ресурсов
+  type: multiline
+
 - variable: image.registry
   default: docker.io
-  group: TODO
-  label: TODO
+  group: Параметры образов Docker
+  label: Реестр образов Docker
   type: string
 - variable: image.repository
   default: bitnami/kafka
-  group: TODO
-  label: TODO
+  group: Параметры образов Docker
+  label: Репозиторий образов Docker
   type: string
 - variable: image.tag
   default: 3.6.1-debian-11-r0
-  group: TODO
-  label: TODO
+  group: Параметры образов Docker
+  label: Тег образа
   type: string
 - variable: image.digest
   default: ''
-  group: TODO
-  label: TODO
+  group: Параметры образов Docker
+  label: Дайджест образа
   type: string
 - variable: image.pullPolicy
   default: IfNotPresent
-  group: TODO
-  label: TODO
-  type: string
+  group: Параметры образов Docker
+  label: Политика скачивания образов
+  type: enum
+  options:
+  - IfNotPresent
+  - Always
+  - Never
 - variable: image.pullSecrets
   default: []
-  group: TODO
-  label: TODO
-  type: TODO
-- variable: image.debug
-  default: false
-  group: TODO
-  label: TODO
-  type: boolean
+  group: Параметры образов Docker
+  label: Список секретов для доступа к реестру образов Docker
+  type: multiline
+
 - variable: extraInit
   default: ''
   group: TODO
