@@ -38,7 +38,7 @@ questions:
 - variable: zookeeper.enabled
   default: false
   group: ZooKeeper
-  label: Использовать ZooKeeper в инсталляции. По умолчанию не требуется
+  label: Использовать ZooKeeper в инсталляции. По умолчанию не требуется. При включении отключить использование KRaft
   type: boolean
   show_subquestion_if: true
   subquestions:
