@@ -152,7 +152,7 @@ questions:
 - variable: controller.controllerOnly
   default: false
   group: Параметры контроллеров
-  label: блабла
+  label: Использовать контроллеры как брокеры
   type: boolean
 - variable: controller.replicaCount
   default: 3
@@ -214,6 +214,65 @@ questions:
   label: Размер диска для логов
   type: string
   show_if: controller.logPersistence.enabled=true
+- variable: broker.heapOpts
+  default: -Xmx1024m -Xms1024m
+  group: Параметры брокеров
+  label: Опции JVM Kafka
+  type: string
+  show_if: controller.controllerOnly=false
+- variable: broker.persistence.enabled
+  default: true
+  group: Параметры брокеров
+  label: Включение создания диска для данных
+  type: boolean
+  show_if: controller.controllerOnly=false
+- variable: broker.persistence.storageClass
+  default: ''
+  group: Параметры брокеров
+  label: Класс хранилища диска данных
+  type: string
+  show_if: controller.controllerOnly=false && broker.persistence.enabled=true
+- variable: broker.persistence.accessModes
+  group: Параметры брокеров
+  label: Режим доступа к диску данных
+  type: enum
+  options:
+  - ReadWriteOnce
+  - ReadWriteMany
+  show_if: controller.controllerOnly=false && broker.persistence.enabled=true
+- variable: broker.persistence.size
+  default: 8Gi
+  group: Параметры брокеров
+  label: Размер диска для данных
+  type: string
+  show_if: controller.controllerOnly=fals && broker.persistence.enabled=true
+- variable: broker.logPersistence.enabled
+  default: false
+  group: Параметры брокеров
+  label: Включение создания диска для логов
+  type: boolean
+  show_if: controller.controllerOnly=false
+- variable: broker.logPersistence.storageClass
+  default: ''
+  group: Параметры брокеров
+  label: Класс хранилища диска логов
+  type: string
+  show_if: controller.controllerOnly=fals && broker.logPersistence.enabled=true
+- variable: broker.logPersistence.accessModes
+  group: Параметры брокеров
+  label: Режим доступа к диску данных
+  type: enum
+  options:
+  - ReadWriteOnce
+  - ReadWriteMany
+  show_if: controller.controllerOnly=fals && broker.logPersistence.enabled=true
+- variable: broker.logPersistence.size
+  default: 8Gi
+  group: Параметры брокеров
+  label: Размер диска для логов
+  type: string
+  show_if: controller.controllerOnly=fals && broker.logPersistence.enabled=true
+
 
 - variable: extraDeploy
   group: Дополнительные параметры
