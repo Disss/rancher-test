@@ -1,11 +1,11 @@
 questions:
 - variable: commonLabels
-  default: {}
+  default: '' 
   group: Общие параметры
   label: Общие метки
   type: multiline
 - variable: commonAnnotations
-  default: {}
+  default: '' 
   group: Общие параметры
   label: Общие аннотации
   type: multiline
