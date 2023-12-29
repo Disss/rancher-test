@@ -149,6 +149,72 @@ questions:
   type: string
   show_if: zookeeper.enabled=true
 
+- variable: controller.controllerOnly
+  default: false
+  group: Параметры контроллеров
+  label: блабла
+  type: boolean
+- variable: controller.replicaCount
+  default: 3
+  group: Параметры контроллеров
+  label: Количество реплик контроллера
+  type: int
+- variable: controller.heapOpts
+  default: -Xmx1024m -Xms1024m
+  group: Параметры контроллеров
+  label: Опции JVM Kafka
+  type: string
+- variable: controller.persistence.enabled
+  default: true
+  group: Параметры контроллеров
+  label: Включение создания диска для данных
+  type: boolean
+- variable: controller.persistence.storageClass
+  default: ''
+  group: Параметры контроллеров
+  label: Класс хранилища диска данных
+  type: string
+  show_if: controller.persistence.enabled=true
+- variable: controller.persistence.accessModes
+  group: Параметры контроллеров
+  label: Режим доступа к диску данных
+  type: enum
+  options:
+  - ReadWriteOnce
+  - ReadWriteMany
+  show_if: controller.persistence.enabled=true
+- variable: controller.persistence.size
+  default: 8Gi
+  group: Параметры контроллеров
+  label: Размер диска данных
+  type: string
+  show_if: controller.persistence.enabled=true
+- variable: controller.logPersistence.enabled
+  default: false
+  group: Параметры контроллеров
+  label: Включение создания дисков для хранения логов
+  type: boolean
+- variable: controller.logPersistence.storageClass
+  default: ''
+  group: Параметры контроллеров
+  label: Класс хранилища диска логов
+  type: string
+  show_if: controller.logPersistence.enabled=true
+- variable: controller.logPersistence.accessModes
+  group: Параметры контроллеров
+  label: Режим доступа к диску логов
+  type: enum
+  options:
+  - ReadWriteOnce
+  - ReadWriteMany
+  show_if: controller.logPersistence.enabled=true
+- variable: controller.logPersistence.size
+  default: 8Gi
+  group: Параметры контроллеров
+  label: Размер диска для логов
+  type: string
+  show_if: controller.logPersistence.enabled=true
+
 - variable: extraDeploy
   group: Дополнительные параметры
   label: Список дополнительных ресурсов в формате манифестов Kubernetes
