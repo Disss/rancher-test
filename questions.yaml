@@ -35,10 +35,15 @@ questions:
   label: Список секретов для доступа к реестру образов Docker
   type: multiline
 
+- variable: kraft.enabled
+  default: true
+  group: ZooKeeper/KRaft
+  label: Использовать KRaft в инсталляции. Включен по умолчанию. При включении отключить ZooKeeper
+  type: boolean
 - variable: zookeeper.enabled
   default: false
-  group: ZooKeeper
-  label: Использовать ZooKeeper в инсталляции. По умолчанию не требуется. При включении отключить использование KRaft
+  group: ZooKeeper/KRaft
+  label: Использовать ZooKeeper в инсталляции. По умолчанию не требуется. При включении отключить KRaft
   type: boolean
   show_subquestion_if: true
   subquestions:
